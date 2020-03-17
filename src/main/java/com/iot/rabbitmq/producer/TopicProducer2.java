@@ -23,6 +23,7 @@ public class TopicProducer2 {
 	@Autowired
 	private RabbitTemplate rabbitTemplate;
 	
+	
 	/* 
 	 * 1.确认消息模式
 	 */
