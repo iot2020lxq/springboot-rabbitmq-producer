@@ -1,0 +1,20 @@
+#整合rabbitmq
+spring:
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: iot
+    password: 123
+    virtual-host: /iot
+    connection-timeout: 15000 #设置连接超时
+#    listener:
+#      direct:
+#        acknowledge-mode: manual #设置手动应答模式
+        #auto-startup: true
+    #消息确认模式，实现一个监听器用于监听consumer端给我们返回的确认请求
+    publisher-confirms: true  
+    #消息返回模式，保证消息对consumer端可达，如果出现路由键不可达，则使用监听器对不可达消息进行后续处理，保证消息路由成功
+    publisher-returns: true
+    template:
+      #保证监听有效
+      mandatory: true
